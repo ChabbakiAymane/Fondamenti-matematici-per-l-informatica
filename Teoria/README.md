@@ -13,6 +13,8 @@ Teoremi presenti nel file "_TeoremiDimostrazioni.tex_":
 11. **Equivalenze tra congiungibilità per cammini e passeggiate**
 12. **Congiunbilità è una relazione di equivalenza**
 13. **Relazione fondamentale tra gradi e numero di lati di un grafo finito**
+
+TODO:
 14. **Lemma delle strette di mano**
 15. **Teorema di caratterizzazione degli alberi finiti**
 16. **Teorema esistenza di alberi di copertura**
