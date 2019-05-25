@@ -32,7 +32,7 @@ L'insieme totalmente ordinato $(\mathbb{N}, \leq)$ è \textbf{ben ordinato}.
 \item
 Sia $A$ un sottoinsieme di $\mathbb{N}$ senza minimo. 
 \item
-Devo provare che $A \neq \varnothing $ o equivalentemente $B := \mathbb{N} \setminus \! A = \mathbb{N}$
+Devo provare che $A = \varnothing $ o equivalentemente $B := \mathbb{N} \setminus \! A = \mathbb{N}$
 \item
 Proviamo per induzione che vale $\forall n \!\in\! \mathbb{N}$, $ \underbrace{\{0,1,\dots,n\} \subset B}_{P(n)} $
 \item
@@ -1039,8 +1039,130 @@ $C.V.D$
 \end{itemize}
 %-------------------------------------------------------------------%
 \subsection{Lemma delle strette di mano}
+\textsc{Enunciato:}
+\begin{itemize}
+\item
+In un grafo \textbf{finito}, il \textbf{numero di vertici} con \textbf{grado dispari} è \textbf{pari}.
+\end{itemize}
+\textsc{Dimostrazione:}
+\begin{itemize}
+\item
+$G = (V,E)$ finito:
+\begin{equation}
+\begin{split}
+\displaystyle{\underbrace{2\,|E|}_{\textrm{pari}}} &= \displaystyle{\sum_{v \in V} deg_G(v)} \\
+&= \underbrace{\sum_{v \in V} deg_G(v)}_{deg_G(v) \textrm { pari}} \,\,\,\,\, + \,\,\,\,\, \underbrace{\sum_{v \in V} deg_G(v)}_{deg_G(v) \textrm { dispari}} \\
+\textrm{numero pari} &= \textrm{numero pari} \implies \textrm{numero pari} 
+\end{split}
+\end{equation}
+\end{itemize}
 %-------------------------------------------------------------------%
 \subsection{Teorema di caratterizzazione degli alberi finiti}
+\textsc{Enunciato:}
+\begin{itemize}
+\item
+Sia $T=(V,E)$ un grafo \textbf{finito}, ovvero $|V|$ è finita.
+\item
+Le seguenti affermazioni sono equivalenti:
+\begin{enumerate}
+\item
+$T$ è un \textbf{albero}.
+\item
+$T$ è \textbf{connesso} e vale la seguente \textbf{formula di Eulero}:
+$$\displaystyle{|V| - 1 =  |E|  = \frac{1}{2} \sum_{v \in V} deg_T(v)}$$
+\end{enumerate}
+\textsc{Enunciato:}
+\begin{itemize}
+\item
+$1. \implies 2.$
+\begin{itemize}
+\item
+$T$ è un albero, dunque $T$ è connesso per definizione di albero.
+\item
+Dobbiamo provare la formula di Eulero.
+\item
+Procediamo per induzione (1° forma) sul numero di vertici di $T$:
+\begin{itemize}
+\item
+\textbf{Base dell'induzione}: $|V(T)| = 1$, questo implica che $|E(T)| = 0$, dunque:
+\begin{equation}
+\begin{split}
+|V| - 1 &= |E| \\
+1 - 1 &= 0
+\end{split}
+\end{equation}
+\item
+La base dell'induzione è verificata.
+\item
+ $|V(T)| \implies |V(T)|$ con $|V(T)| \geq 2$ (\textbf{passo induttivo}).
+\item
+Sia $T$ un albero (finito) con almeno $2$ vertici ($|V(T)| \geq 2$), allora $T$ possiede almeno 2 foglie (Lemma 20.4).
+\item
+Sia $v$ una tale foglia.
+\item
+Poichè $T-v$ è ancora un albero, per \textbf{ipotesi induttiva}, $T-v$ soddisfa la formula di Eulero, cioè:
+\begin{equation}
+\begin{split}
+\underbrace{|V(T-v)|}_{V(T)-1} - 1 &= \underbrace{|E(T-v)|}_{|E(T)-1|} \\
+|V(T)|-2 &= |E(T)|-1 \\
+|V(T)|-1 &= |E(T)|
+\end{split}
+\end{equation}
+\end{itemize}
+\item
+La prima implicazione è stata dimostrata.
+\end{itemize}
+\item
+$2. \implies 1.$
+\begin{itemize}
+\item
+Sia $T$ un grafo finito, connesso che soddisfa la formula di Eulero, cioè vale la $2.$
+\item
+Dobbiamo provare che $T$ è un albero.
+\item
+Procediamo per induzione su $|V(T)|$:
+\begin{itemize}
+\item
+\textbf{Base dell'induzione}: $$|V(T)| = 1 \textrm{, dunque } T \textrm{ è un albero.}$$
+\item
+Base dell'induzione dimostata.
+\item
+$|V(T)| \geq 2$, $|V(T)| - 2 \implies |V(T)|$ (\textbf{ipotesi induttiva}).
+\item
+Dimostriamo che $T$ ha almeno una foglia. 
+\item 
+Supponiamo che ciò sia falso.
+Poichè $T$ è connesso, il $deg_T(v) \geq 2 \,\, \forall v \in V(T)$ dunque:
+\begin{equation}
+\begin{split}
+|V(T)| - 1 &= |E(T)| \\
+2\,|V(T)| - 2 &= 2\,|E(T)| = \sum_{v \in V} deg_T(v) \geq \sum_{v \in V} 2 = 2\,|V(T)| \\
+\implies 2\,|V(T)| - 2 \geq 2\,|V(T)| \textrm{ che è assurdo.}
+\end{split}
+\end{equation}
+\item
+Abbiamo appena dimostrato che $T$ ha \textbf{almeno una foglia}.
+\item
+Sia dunque $v$ una foglia di $T$.
+\item
+Osservo che $T-v$ è \textbf{connesso}.
+\item
+Ricordiamo che: $$|V(T)-1| = |E(T)| \Longleftrightarrow (|V(T)|-1) - 1 = |E(T)| - 1 \Longleftrightarrow |V(T-v)|-1 = |E(T-v)|$$
+\item
+Per ipotesi induttiva $T-v$ è un albero ($T-v$ è connesso e soddisfa la formula di Eulero).
+\item
+Supponiamo che $c$ sia un ciclo di $T$ che passa per i vertici $v$ e $w$.
+\item
+$T-v$ creerebbe un ciclo, ma visto che $T-v$ per ipotesi è un albero, questo implica che non ha cicli, dunque anche $T$ non ha cicli.
+$\implies T$ è un albero. 
+\end{itemize}
+\item
+La seconda implicazione è stata dimostrata.
+\end{itemize}
+\item
+Visto che sia la prima che la seconda implicazione sono state dimostrate, abbiamo finito la dimostrazione del teorema.
+\end{itemize}
+\end{itemize}
 %-------------------------------------------------------------------%
 \subsection{Teorema esistenza alberi di copertura}
 %-------------------------------------------------------------------%
