@@ -375,7 +375,7 @@
 	\begin{equation}
 	\begin{split}
 	77 &= 1 \cdot 56 + 21 \\
-	56 &= 2 \cdot 21 + 7 \\
+	56 &= 2 \cdot 21 + 14 \\
 	21 &= 1 \cdot 14 + 7 \\
 	\hbox{\sout{$14$}} &= \hbox{\sout{$2 \cdot 7 + 0$}}
 	\notag
@@ -1338,6 +1338,60 @@
 	\item
 	Per semplicità nei calcoli, quando le entrate dell' i-esimo score sono tutte minori o uguali a $2$ ci si può fermare.
 	\end{itemize}
+	
+	\section{Grafi connessi e sconnessi}
+	\begin{itemize}
+	\item
+	Queste affermazioni servono solo per dimostrare l'esistenza di almeno un grafo dato uno score. 
+	\item	
+	Alcune però non bastano da sole per verificare che effettivamente lo score rappresenti sempre un grafo o meno.
+	\item
+	In altre parole, queste affermazioni permettono di dire se esiste almeno un grafo connesso o sconnesso, ma non è detto che quello score rappresenti sempre un grafo connesso o sconnesso.
+	
+	\item
+	\textsc{Sconnesso:}
+	\begin{enumerate}
+	\item
+	Dato $G = (V,E)$, se $|E(G)| < |V(G)| - 1$ allora esiste un grafo sconnesso dato lo score.
+	\item
+	Un grafo è sconnesso se ha più di una compontente connessa.
+	\item
+	Se c'è uno $0$ nello score allora esiste un grafo sconnesso.
+	\end{enumerate}
+	\item
+	\textsc{Connesso:}
+	\begin{enumerate}
+	\item
+	Un grafo è connesso se ha una sola compontente connessa.
+	\item
+	Se c'è uno $0$ nello score non esiste un grafo connesso.
+	\item
+	Se $|E| \geq |V|-1$ allora esiste un grafo connesso.
+	\end{enumerate}		
+	
+	\item
+	\textsc{Hamiltoniano:}
+	\begin{itemize}
+	\item
+	Se è presente uno $0$ nello score del grafo, allora non può esistere un hamiltoniano.
+	\item
+	Se c'è un $1$ nello score, non può esistere un hamiltoniano perchè un grafo per essere hamiltoniano deve contenere al suo interno almeno un ciclo hamiltoniano, che consiste in una \textbf{passeggiata chiusa semplice} (non passa due volte per lo stesso vertice) che non è ottenibile con un vertice di grado $1$.
+	\end{itemize}
+	
+	\item
+	\textsc{Albero:}
+	\begin{itemize}
+	\item
+	Se è presente uno $0$ nello score non può esistere un grafo connesso e quindi neanche un albero.
+	\item
+	Se $1 \leq d_1 \leq \dotso \leq d_n$ e vale $\displaystyle {|V|-1 = \frac{1}{2} \sum_{1}^{n} d_i}$ allora esiste un albero dato uno score.
+	\item
+	Per essere un albero (finito), devono esserci almeno due foglie (vertici con grado uguale a $1$).
+	\end{itemize}
+	
+	\end{itemize}
+	\newpage
+	
 	\subsection{Esercizio 1}
 	\begin{itemize}
 	\item
