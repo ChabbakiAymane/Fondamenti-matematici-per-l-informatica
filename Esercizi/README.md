@@ -6,6 +6,6 @@ Esercizi presenti nel file "_SchemaEsercizi.tex_"
 - **Invertibilità**
 - **Calcolo della phi**
 - **Crittografia RSA**
-- **Grafi:**
+- **Grafi e Alberi:**
   - _Isomorfismo_ 
   - _Score_
