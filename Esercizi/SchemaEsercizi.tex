@@ -1329,6 +1329,7 @@
 	\begin{cases}
 	d_i & i < n-d_n \\
 	d_i - 1 & i \geq n-d_n
+	\notag
 	\end{cases}
 	\end{equation}
 	\item
@@ -1339,57 +1340,93 @@
 	Per semplicità nei calcoli, quando le entrate dell' i-esimo score sono tutte minori o uguali a $2$ ci si può fermare.
 	\end{itemize}
 	
-	\section{Grafi connessi e sconnessi}
+	\section{Teorema dello score: Criterio d'arresto}
 	\begin{itemize}
 	\item
-	Queste affermazioni servono solo per dimostrare l'esistenza di almeno un grafo dato uno score. 
-	\item	
-	Alcune però non bastano da sole per verificare che effettivamente lo score rappresenti sempre un grafo o meno.
+	Sia $d = (d_1, \dotso, d_n) \in \mathbb{N}$ tale che $0 \leq d_1 \leq \dotsb \leq d_n \leq 2$.
 	\item
-	In altre parole, queste affermazioni permettono di dire se esiste almeno un grafo connesso o sconnesso, ma non è detto che quello score rappresenti sempre un grafo connesso o sconnesso.
-	
+	Supponiamo che $d$ soddisfi il lemma delle strette di mano, cioè il numero di volte che compare $1$ è pari.
 	\item
-	\textsc{Sconnesso:}
+	Allora valgono:
 	\begin{enumerate}
 	\item
-	Dato $G = (V,E)$, se $|E(G)| < |V(G)| - 1$ allora esiste un grafo sconnesso dato lo score.
+	\textbf{Non compare $1$}:	
+	\begin{itemize}
 	\item
-	Un grafo è sconnesso se ha più di una compontente connessa.
+	$d=(0,0,0,\dotso,0)$ è lo score di un grafo con vertici isolati.
 	\item
-	Se c'è uno $0$ nello score allora esiste un grafo sconnesso.
+	$d=(0,0,0,\dotso,2)$ non è lo score di un grafo; l'ultimo vertice prevede due lati ma tutti gli altri vertici sono isolati.
+	\item
+	$d=(0,0,0,\dotso,2,2)$ non è lo score di un grafo.
+	\item
+	$d=(0,0,0,\dotso,\underbrace{2,2,\dotso,2}_{m \textrm{-volte}})$ è lo score di un grafo.
+	\end{itemize}
+	\item
+	Supponiamo che $1$ compaia $2k + 2$ volte per qualche $k>0$:
+	$$d = (\underbrace{0, \dotso, 0}_{n}, \underbrace{1, 1, \dotso, 1}_{2k + 2}, \underbrace{2, 2, \dotso, 2}_{m})$$
+	\begin{center}
+		\begin{figure}[h]
+		\centering
+		\includegraphics[width = 0.9\linewidth]{TeoremaScore_criterioArresto}
+		\end{figure}
+	\end{center}
+	
 	\end{enumerate}
+	\end{itemize}
+	
+	\section{Teorema di Eulero}
+	\textsc{ENUNCIATO:}
+	\begin{itemize}
 	\item
-	\textsc{Connesso:}
+	Sia $T = (V,E)$ un grafo \textbf{finito}, ovvero $|V|$ è finita.
+	\item
+	Le seguenti affermazioni sono \textbf{equivalenti}:
+	\begin{itemize}
+	\item
+	$T$ è un \textbf{albero}.
+	\item
+	$T$ è \textbf{connesso} e vale la seguente \textbf{formula di Eulero}:
+	$$\displaystyle{|V|-1 = |E| = \frac{1}{2} \sum_{v \in V} deg_T(v)}$$
+	\end{itemize}
+	\end{itemize}
+		
+	
+	\section{Osservazioni:}
 	\begin{enumerate}
 	\item
-	Un grafo è connesso se ha una sola compontente connessa.
+	Sia $d = (d_1,d_2,\dotso,d_n) \in \mathbb{N}^n$ tale che $1\leq d_1 \leq d_2 \leq \dotso \leq d_n$ tale che:$$\displaystyle{n-1 = \frac{1}{2} \sum_{i=1}^{n} d_i}$$ allora \textbf{esiste almeno un albero} con tale score.
 	\item
-	Se c'è uno $0$ nello score non esiste un grafo connesso.
+	Se un grafo $G$ ammette almeno un \textbf{albero di copertura}, allora $G$ è \textbf{connesso}.
 	\item
-	Se $|E| \geq |V|-1$ allora esiste un grafo connesso.
-	\end{enumerate}		
-	
-	\item
-	\textsc{Hamiltoniano:}
+	\textsc{Forzatura alla sconnessione}:
 	\begin{itemize}
 	\item
-	Se è presente uno $0$ nello score del grafo, allora non può esistere un hamiltoniano.
-	\item
-	Se c'è un $1$ nello score, non può esistere un hamiltoniano perchè un grafo per essere hamiltoniano deve contenere al suo interno almeno un ciclo hamiltoniano, che consiste in una \textbf{passeggiata chiusa semplice} (non passa due volte per lo stesso vertice) che non è ottenibile con un vertice di grado $1$.
+	 Se $G=(V,E)$ è un grafo finito tale che $|E| < |V| - 1$, allora $G$ è \textbf{sconnesso}.
+	 \item
+	 Sia $d = (d_1, d_2, \dotso, d_n) \in \mathbb{N}^n$ tale:
+	 $$\displaystyle{\frac{1}{2}\left(\sum_{i=1}^{n} d_i \right)}$$
+	 allora \textbf{ogni} grafo (se esiste) con score d è \textbf{connesso}.
 	\end{itemize}
-	
 	\item
-	\textsc{Albero:}
+	\textsc{Forzatura alla connessione}:
 	\begin{itemize}
 	\item
-	Se è presente uno $0$ nello score non può esistere un grafo connesso e quindi neanche un albero.
+	Sia $G=(V,E)$ un grafo finito con score $d=(d_1, \dotso, d_n)$ in forma canonica.\\ Se $d_1, d_2, \geq n - d_n - 1$, allora tutti i grafi con score $d$ sono connessi.
 	\item
-	Se $1 \leq d_1 \leq \dotso \leq d_n$ e vale $\displaystyle {|V|-1 = \frac{1}{2} \sum_{1}^{n} d_i}$ allora esiste un albero dato uno score.
+	Sia $d=(d_1, \dotso, d_n) \in \mathbb{N}^n$ tale che:
+	\begin{itemize}
 	\item
-	Per essere un albero (finito), devono esserci almeno due foglie (vertici con grado uguale a $1$).
+	$d_1 \leq d_2 \leq \dotsb \leq d_n$
+	\item
+	$d_1 \geq n - d_n - 1$
 	\end{itemize}
+	\item
+	Allora ogni grado (se esiste) con score $d$ è \textbf{connesso}.
+	\end{itemize}
+	\item
+	Se la \textbf{disugualianza per la connessione} (o per la \textbf{sconnessione}) non funziona, cioè risulta \textbf{falsa}, allora \textbf{nulla si può dire} in merito alla connessione di un grafo con tale score.
+	\end{enumerate}
 	
-	\end{itemize}
 	\newpage
 	
 	\subsection{Esercizio 1}
@@ -1688,23 +1725,147 @@
 	\begin{center}
 		\begin{figure}[h]
 		\centering
-		\includegraphics[width = 0.2\linewidth]{scoreGrafo_Esercizio5}
+		\includegraphics[width = 0.3\linewidth]{scoreGrafo_Esercizio5}
 	\end{figure}
 	\end{center}
 	\item 
 	Grazie al teorema dello score anche $d_2$ è lo score di un grafo $G_2$.
 	\item
 	Costruiamo un grafo (procedura a ritroso) con score $d$ utilizzando il teorema dello score:
+	%\begin{center}
+	%	\begin{figure}[h]
+	%	\centering
+	%	\begin{subfigure}[b]{0.3\linewidth}
+	%		\includegraphics[width=\linewidth]{scoreEsercizio5}
+	%	\end{subfigure}
+	%	\begin{subfigure}[b]{0.2\linewidth}
+	%		\includegraphics[width=\linewidth]{grafoEsercizio5}
+	%	\end{subfigure}
+	%\end{figure}
+	%\end{center}
+	\end{itemize}
+	\subsection{Esercizio 6}
+	\begin{itemize}
+	\item
+	Quale dei seguenti vettori è lo score di un albero?
+	\begin{enumerate}
+	\item
+	$d_1 = (0,1,1,3,3,3,3,4,4)$
+	\item
+	$d_2 = (1,2,2,2,3,3,4,4,5)$
+	\item
+	$d_3 = (2,2,2,2,3,3,3,4,4,7)$
+	\item
+	$d_4 = (1,1,1,1,1,2,2,3,4)$
+	\item
+	$d_5 = (1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,,2,3,6,6,7)$
+	\end{enumerate}
+	\item
+	\textsc{Soluzione:}
+	\begin{enumerate}
+	\item
+	$d_1$ non è uno score di un albero, in quanto, sarebbe presente un \textbf{vertice isolato} e dunque il grafo con tale score risulterebbe sconnesso.
+	\item
+	$d_2$ non è lo score di un albero, in quanto, un grafo con score $d_2$ avrebbe $9$ vertici e se fosse un albero dovrebbero essere presenti almeno $2$ foglie (vertici di grado $1$).
+	\begin{itemize}
+	\item
+	Inoltre usando la formula di Eulero si ha:	
+	\begin{equation}
+	\begin{split}
+	n &= 9 \textrm{\smallskip\smallskip}\\
+	|E| &= \frac{1}{2} (1+2+2+2+3+3+4+4+5)\\
+	&= \frac{1}{2}(26) \\
+	&= 13
+	\notag
+	\end{split}
+	\end{equation}
+	\item
+	Deve valere: $$n-1 = |E| \Longleftrightarrow 9 - 1 = 13 \Longleftrightarrow 8 = 13$$
+	\item
+	Visto che quest' ultima affermazione è falsa, \textbf{la formula di Eulero non è soddisfatta} e dunque non esiste un albero con score $d_2$.	
+	\end{itemize}
+	\item
+	$d_3$ non è uno score di un albero per \textbf{assenza di foglie}.
+	\item
+	Verifichiamo la formula di Eulero per $d_4$:
+	\begin{itemize}
+	\item
+	$n=9$
+	\item
+	$|E| = \frac{1}{2} (1,1,1,1,1,2,2,3,4) = \frac{1}{2} (16) = 8$
+	\item
+	Vale:
+	$$n-1 = |E| \Longleftrightarrow 9-1 = 8 \Longleftarrow 8=8$$
+	\item
+	Osservo che $d_4$ non ha entrate nulle (vertici isoltati) e che vale la formula di Eulero; dunque l'albero con score $d_4$ può essere costruito nel seguente modo:
 	\begin{center}
 		\begin{figure}[h]
 		\centering
-		\begin{subfigure}[b]{0.4\linewidth}
-			\includegraphics[width=\linewidth]{scoreEsercizio5}
-		\end{subfigure}
-		\begin{subfigure}[b]{0.2\linewidth}
-			\includegraphics[width=\linewidth]{grafoEsercizio5}
-		\end{subfigure}
+		\includegraphics[width = 0.7\linewidth]{EsercizioScoreAlberiD4}
 	\end{figure}
 	\end{center}
+	\end{itemize}
+	\item
+	Verifichiamo la formula di Eulero per $d_5$:
+	\begin{itemize}
+	\item
+	$n=21$
+	\item
+	$|E| = \frac{1}{2} (1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,,2,3,6,6,7) = \frac{1}{2} (40) = 20$
+	\item
+	Vale:
+	$$n-1 = |E| \Longleftrightarrow 21-1 = 20 \Longleftarrow 20=20$$
+	\item
+	Osservo che $d_5$ non ha entrate nulle (vertici isoltati) e che vale la formula di Eulero; dunque l'albero con score $d_5$ può essere costruito nel seguente modo:
+	\begin{center}
+		\begin{figure}[h]
+		\centering
+		\includegraphics[width = 0.7\linewidth]{EsercizioScoreAlberiD5}
+	\end{figure}
+	\end{center}
+	\end{itemize}
+	\end{enumerate}
+	\end{itemize}
+	
+	\subsection{Esercizio 6}
+	\begin{itemize}
+	\item
+	Dise se esite un grafo connesso con il seguente score:
+	\begin{enumerate}
+	\item
+	$d_1 = (1,1,1,1,1,1,2,2)$
+	\begin{itemize}
+	\item
+	Vale:
+	\begin{equation}
+	\begin{split}
+	\frac{1}{2} \left(\sum_{i = 1}^{n} d_{1i} \right) &< n - 1 \\
+	\frac{1}{2} \left(6 \cdot 1 + 2 + 2\right) &< 8 - 1 \\
+	\frac{1}{2} \left(10\right) &< 7 \\
+	5 &< 7
+	\notag
+	\end{split}
+	\end{equation}
+	\item
+	Tutti i grafi che hanno $d_1$ come score sono sconnessi, dunque non esiste un grafo connesso con score $d_1$.
+	\end{itemize}
+	\item
+	$d_2 = (1,1,2,2,2)$
+	\begin{itemize}
+	\item
+	Vale:
+	\begin{equation}
+	\begin{split}
+	\frac{1}{2} \left(\sum_{i = 1}^{n} d_{2i} \right) &< n - 1 \\
+	\frac{1}{2} \left(2 \cdot 1 + 3 \cdot  2\right) &< 5 - 1 \\
+	\frac{1}{2} \left(8\right) &< 4 \\
+	4 &< 7
+	\notag
+	\end{split}
+	\end{equation}
+	\item
+	\textbf{Nulla si può dire}, la condizione (necessaria ma non sufficiente) non è verificata.
+	\end{itemize}
+	\end{enumerate}
 	\end{itemize}
 \end{document} 
