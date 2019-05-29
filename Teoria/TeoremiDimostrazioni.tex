@@ -1165,6 +1165,41 @@ Visto che sia la prima che la seconda implicazione sono state dimostrate, abbiam
 \end{itemize}
 %-------------------------------------------------------------------%
 \subsection{Teorema esistenza alberi di copertura}
+\textsc{Enunciato:}
+\begin{itemize}
+\item
+Ogni grafo \textbf{finito} e \textbf{connesso} \textbf{ammette un albero di copertura}.
+\end{itemize}
+\textsc{Dimostrazione:}
+\begin{itemize}
+\item
+Sia $G$ un grafo finito e connesso.
+\item
+Scriviamo $G=(V,E)$.
+\item
+Consideriamo:
+$$\mathbb{C} := \{C\,|\,C \textrm{ è un sottografo conneso di } G \textrm{ tale che } V(C) = V(G) \}$$
+\item
+Osserviamo che $\mathbb{C} \neq \varnothing$ in quanto $G \in \mathbb{C}$.
+\item
+Definiamo:
+$$A := \{|E(C)| \in \mathbb{N} \,|\, C \in \mathbb{C}\} \neq \varnothing \textrm{ in quanto } |E(G)| \in \mathbb{A} $$
+\item
+Grazie al \textbf{teorema di buon ordinamento} $(\mathbb{N},\leq)\,\, \exists \, \overline{C} \in \mathbb{C}$ tale che:
+$$|E(\overline{C})| \leq |E(C)| \quad \forall \, C \in \mathbb{C}$$ 
+\item
+Poichè $\overline{C} \in \mathbb{C}$ vale che $V(\overline{C}) = V(G)$.
+\item
+Dunque per dimostrare che $\bar{C}$ è un albero di copertura di $G$ è sufficiente verificare che $\bar{C}$ è un albero.
+\item
+Se $\overline{C}$ non fosse un albero, ciò significherebbe che contiene almeno un ciclo, visto che $\overline{C}$ è connesso ma non è un albero.
+\item
+Se togliessi un lato da $\overline{C}$, quello che ottengo è un grafo connesso senza cicli.
+\item
+Ma visto che, togliendo un alto, la minimalità del numero di lati di $\overline{C}$ viene a mancare, cioè $|E(\overline{C}-e)| \leq |E(\overline{C})|$, ma questo è \textbf{assurdo} perchè $|E(\overline{C}|$ è il minor numero di lati, definito per costruzione.
+\item
+Dunque $\overline{C}$ è un albero e in particolare è un \textbf{albero di copertura}.
+\end{itemize}
 %-------------------------------------------------------------------%
 %-------------------------------------------------------------------%
 %-------------------------------------------------------------------%
