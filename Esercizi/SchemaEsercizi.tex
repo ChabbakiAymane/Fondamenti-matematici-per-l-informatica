@@ -180,7 +180,7 @@
 	\item
 	$n \!\geq\! 3$, $n \implies n+1$
 	\item
-	Assumiamo che $\displaystyle{\prod_{k=2}^n \left(1-\frac{1}{k^2}\right) = \frac{1+n}{2n}}$ per qualche $n \geq 3$ (\textbf{ipotesi induttiva}).
+	Assumiamo che $\displaystyle{\prod_{k=2}^n \left(1-\frac{1}{k^2}\right) = \frac{1+n}{2n}}$ sia vera per qualche $n \geq 3$ (\textbf{ipotesi induttiva}).
 	\item
 	Proviamo che $\displaystyle{\prod_{k=2}^{n+1} \left(1-\frac{1}{k^2}\right) = \frac{1+(n+1)}{2(n+1)}}$ (\textbf{passo induttivo}).
 	\item
@@ -201,7 +201,82 @@
 	\item
 	Dunque, visto che $\displaystyle{\prod_{k=2}^{n+1} \left(1-\frac{1}{k^2}\right) = \frac{1 + (n+1)}{2(n+1)}}$, abbiamo dimostrato l'ugualianza.
 	\end{itemize}
+	
+	\subsection{Esercizio 5}
+	Si dimostri per induzione su $n \!\in\! \mathbb{N}$ che $\forall \, n \geq 1$ vale $P(n) := \displaystyle{\sum_{k=1}^n \frac{4k^2 
+	+ 2k - 1 }{(2k+1)!} = 1 - \frac{1}{(2n + 1)!}}$
+	\\ \textsc{Soluzione:}
+	\begin{itemize}
+	\item
+	Osserviamo che vale $n=1$ (\textbf{base dell'induzione}):
+	$$\frac{4\cdot 1^2 + 2\cdot 1 - 1}{(2\cdot 1 + 1)!} = 1 - \frac{1}{(2\cdot 1 + 1)!} \Longleftrightarrow \frac{4+2-1}{3!} = 1 - \frac{1}{6} \Longleftrightarrow \frac{5}{6} = \frac{5}{6}$$
+	\item
+	$P(1)$ è vera.
+	\item
+	$n \geq 1$, $n \implies n+1$ (\textbf{passo induttivo}).
+	\item
+	Assumiamo che $\displaystyle{\sum_{k=1}^n \frac{4k^2 
+	+ 2k - 1 }{(2k+1)!} = 1 - \frac{1}{(2n + 1)!}}$ sia vera per qualche $n \geq 1$ (\textbf{ipotesi induttiva}).
+	\item
+	Dobbiamo provare che $\displaystyle{\sum_{k=1}^{n+1} \frac{4k^2 
+	+ 2k - 1 }{(2k+1)!} = 1 - \frac{1}{(2(n+1) + 1)!}}$
+	\item
+	Vale:
+	\begin{equation}
+	\begin{split}
+	\displaystyle{\sum_{k=1}^n \frac{4k^2 
+	+ 2k - 1 }{(2k+1)!}}  &= \displaystyle{1 - \frac{1}{(2n + 1)!}} \\
+	&= \left(\sum_{k=1}^n \frac{4k^2 
+	+ 2k - 1 }{(2k+1)!}\right) + \left( \frac{4(n+1)^2 + 2(n+1) - 1}{(2(n+1)+1)!} \right) \\
+	\textrm{\small{(\textbf{ipotesi induttiva})}} \mapsto &= \left( 1 - \frac{1}{(2n+1)!} \right) + \left( \frac{4(n^2 + 2n + 1) + 2n + 2 - 1}{(2n+3)!} \right) \\
+	&= 1 - \frac{1}{(2n+1)!} + \frac{4n^2 + 10n + 5}{(2n+3)!} \\
+	&= 1 - \frac{1}{(2n+1)!} + \frac{4n^2 + 10n + 5}{(2n+3)(2n+2)(2n+1)!} \\
+	&= 1 - \left[\frac{(2n+3)(2n+2) - (4n^2 + 10n + 5)}{(2n+3)(2n+2)(2n+1)!}\right] \\
+	&= 1 - \left[\frac{4n^2 + 10n + 6 - 4n^2 - 10n - 5)}{(2n+3)(2n+2)(2n+1)!}\right] \\
+	&= 1 - \frac{1}{(2n+3)!} \\
+	&= 1 - \frac{1}{(2(n+1)+1)!}
+	\notag
+	\end{split}
+	\end{equation}
+	\item
+	Dunque, visto che $\displaystyle{\sum_{k=1}^n \frac{4k^2 
+	+ 2k - 1 }{(2k+1)!} = 1 - \frac{1}{(2n + 1)!}}$, abbiamo dimostrato l'ugualianza.
+	\end{itemize}
+
+	\subsection{Esercizio 6}
+	Si dimostri per induzione su $n \!\in\! \mathbb{N}$ che $\forall \, n \geq 1$ vale $P(n) := \displaystyle{\sum_{k=1}^n \frac{3}{(2k+1)(2k+3)} = 1 - \frac{n}{(2n + 3)}}$
+	\\ \textsc{Soluzione:}
+	\begin{itemize}	
+	\item
+	Osserviamo che vale $n=1$ (\textbf{base dell'induzione}):
+	$$\frac{3}{(2\cdot 1 + 1)(2 \cdot k + 3)} = \frac{1}{2\cdot 1 + 3} \Longleftrightarrow \frac{3}{(2+1)(2+3)} = \frac{1}{2+3} \Longleftrightarrow \frac{3}{15} = \frac{1}{5} \Longleftrightarrow \frac{1}{3} = \frac{1}{5}$$
+	\item
+	$P(1)$ è vera.
+	\item
+	$n \geq 1$, $n \implies n+1$ (\textbf{passo induttivo}).
+	\item
+	Assumiamo che $\displaystyle{\sum_{k=1}^n \frac{3}{(2k+1)(2k+3)} = 1 - \frac{n}{(2n + 3)}}$ sia vera per qualche $n \geq 1$ (\textbf{ipotesi induttiva}).
+	\item
+	Dobbiamo provare che $\displaystyle{\sum_{k=1}^{n+1} \frac{3}{(2k+1)(2k+3)} = 1 - \frac{n+1}{(2(n+1) + 3)}}$
+	\item
+	Vale:
+	\begin{equation}
+	\begin{split}
+	\frac{3}{(2k+1)(2k+3)} &= \frac{n+1}{(2(n+1) + 3)} \\
+	&= \left(\sum_{k=1}^n \frac{3}{(2k+1)(2k+3)}\right) + \left(\frac{3}{(2(n+1)+1)(2(n+1)+3)}\right) \\
+	\textrm{\small{(\textbf{ipotesi induttiva})}} \mapsto &= \left( \frac{n}{(2n+3)} \right) + \left( \frac{3}{(2n+3)(2n+5)} \right) \\
+	&= \frac{2n^2 + 5n + 3}{(2n+3)(2n+5)} \\
+	&= \frac{(n+1)(2n + 3)}{(2n+3)(2n+5)} \\
+	&= \frac{n+1}{2n+5} \\
+	&= \frac{n+1}{(2(n+1)+3)}
+	\notag
+	\end{split}
+	\end{equation}
+	\item
+	Dunque, visto che $\displaystyle{\sum_{k=1}^{n+1} \frac{3}{(2k+1)(2k+3)} = 1 - \frac{n+1}{(2(n+1) + 3)}}$, abbiamo dimostrato l'ugualianza.
+	\end{itemize}
 	\newpage
+	
   \section{Massimo Comune Divisore}
 	\subsection{Esercizio 1}
 	\begin{itemize}
@@ -555,7 +630,144 @@
 	\end{itemize}
 	\end{itemize}
 	
+	\subsection{Esercizio 3}
+	\begin{itemize}
+	\item
+	Determinare tutte le soluzioni di:
+	\[		
+	(S) =
+	\begin{cases}
+	x \equiv -7 \!\!\!\pmod{21} \\
+	x \equiv \,\,\, 41 \pmod{81}
+	\end{cases}
+	\]
+	e dire se esiste una soluzione divisibile per $14$.
+	\item
+	\textsc{Soluzione:}
+	\begin{enumerate}
+	\item
+	\textsc{Compatibilità}
+	\begin{itemize}
+	\item
+	Ricordiamo che, grazie al Teorema Cinese del Resto, il sistema $S$ è compatibile ($Sol(S) \neq \varnothing$) $\Longleftrightarrow (21,81)\,|\,41-(-7) \Longleftrightarrow (21,81)\,|\, 48$
+	\item
+	Vale: 
+	\begin{equation}
+	\begin{split}
+	21 &= 3 \cdot 7 \\
+	81 &= 3^4 
+	\notag
+	\end{split}
+	\end{equation} \smallskip	
+	$\implies$ $(21,81) = 3$ \smallskip
+	\item
+	$(21,81)\,|\,48 \Longleftrightarrow 3\,|\,48 = 3 \cdot 16$ {\small (visto che $3$ divide $36$, il sistema $(S)$ è compatibile)}.
+	\item
+	Dunque: $41-(-7) = 16 \cdot (21,81)$ $\textbf{(1)}$\bigskip
+	\end{itemize} 
+	\item
+	\textsc{Calcolo di una soluzione:}
+	\begin{itemize}
+	\item
+	Applico l'algoritmo di Euclide a $21$ e $81$:
+	\begin{equation}
+	\begin{split}
+	81 &= 3 \cdot 21 + 18 \\
+	21 &= 1 \cdot 18 + 3 \\
+	\hbox{\sout{$18$}} &= \hbox{\sout{$6 \cdot 3 + 0$}}
+	\notag
+	\end{split}
+	\end{equation}
+	\item
+	Ora risaliamo i resti:
+	\begin{equation}
+	\begin{split}
+	18 &= 81 - 3 \cdot 21 \\
+	3 &= 21 - 1 \cdot 42 \\
+	&= 21 - (81 - 3 \cdot 21) \\
+	&= 4 \cdot 21 - 81
+	\notag
+	\end{split}
+	\end{equation}
+	\item
+	Dunque $(21,81) = 3 = 4 \cdot 21 - 81$ $\;\textbf{(2)}$\smallskip \smallskip
+	\end{itemize}
+	\item
+	Dalla $\textbf{(1)}$ e dalla $\textbf{(2)}$ segue che:
+	\begin{equation}
+	\begin{split}
+	41 - (-7) &= 16 \cdot (21,81) \\
+	41 - (-7) &= 16 (4\cdot 21 - 81) \\
+	&= 64 \cdot 21 - 16 \cdot 81 \\
+	41 + 16 \cdot 16 \cdot 81 &= -7 + 64 \cdot 21 \\
+	1337 &= 1337
+	\notag
+	\end{split}
+	\end{equation}
+	\item
+	$c := 1337 \in Sol$
+
+	\textsc{Calcolo della soluzione generale (calcolo del $Sol(S)$)}
+	\begin{itemize}
+	\item
+	Grazie al Teorema Cinese del Resto si ha: $$Sol(S) = \left[1337\right]_{\left[21,81\right]} \subset \mathbb{Z}$$ \smallskip
+	\item
+	Segue che $\displaystyle{\left[21,81\right] = \frac{21 \cdot 81}{(21,81)} = \frac{21 \cdot 81}{3} = 567}$
+	\item
+	Dunque:
+	\begin{equation}
+	\begin{split}
+	Sol(S) = \left[1337\right]_{\left[567\right]} &= \left[203\right]_{\left[567\right]} \\
+	&= \{203 + 567 \cdot k \in \mathbb{Z} \,|\, k \in \mathbb{Z} \}
+	\notag
+	\end{split}
+	\end{equation}
+	\end{itemize}
+	\end{enumerate}	
+	\item
+	Esiste un $x \in Sol(S)$ tale che $14\,|\,x$ ?
+	\begin{enumerate}
+	\item	
+	\textsc{Metodo 1:}
+	\begin{itemize}
+	\item
+	Grazie al teorema cinese del resto, l'esistenza di $x \in Sol(S)$ tale che $14\,|\,x$ è equivalente alla compatibilità del seguente sistema:
+	\[
+	\begin{cases}
+	x \equiv 200 \!\!\!\pmod{567} \\
+	x \equiv \,\,\, 0 \pmod{14}
+	\end{cases}
+	\]
+	\item
+	Tale sistema è compatibile se e soltanto se:
+	$$(567,14)\,|\, 203 - 0 \Longleftrightarrow 7 \,|\, 203$$
+	\item
+	Visto che $7 \,|\, 203$ è vero, il sistema risulta compatibile, quindi ammette soluzione.
+	\item
+	Dunque esiste una soluzione divisibile per $14$.
+	\end{itemize}
+	\item	
+	\textsc{Metodo 2:}
+	\begin{itemize}
+	\item
+	$x = 203 + k \cdot 567$
+	\begin{equation}
+	\begin{split}
+	\left[203 + k \cdot 567\right]_{14} &= \left[203\right]_{14} + \left[k\right]_{14} \cdot \left[567\right]_{14} \\
+	&= \left[203\right]_{14} + \left[k\right]_{14} \cdot \left[7\right]_{14} \\
+	&= \left[7 + k \cdot 7\right]_{14} \\
+	&= \left[14\right]_{14} \textrm{ \quad con } k=1 \\
+	&= \left[0\right]_{14} \\
+	\end{split}
+	\end{equation}
+	\item
+	Si ne esiste almeno una e corriponde, ad esempio, a $k=1$.
+	\end{itemize}
+	\end{enumerate}
+	\end{itemize}
+	
 	\newpage
+	
   \section{Invertibilità}
 	\subsection{Esercizio 1}
 	\begin{enumerate}
@@ -1619,7 +1831,7 @@
 	\item 
 	Dunque, grazie al teorema dello score anche $d$ è lo score di un grafo G.
 	\item
-	Costruiamo un grafo (procedura a ritroso) con score $d$ utilizzando il teorema dello score:
+	Costruiamo un grafo (procedura a ritroso) con score $d$ utilizzando il teorema dello score: \textbf{(DA FARE GRAFO)}
 	\end{itemize}
 	
 	\subsection{Esercizio 4}
@@ -1731,7 +1943,7 @@
 	\item 
 	Grazie al teorema dello score anche $d_2$ è lo score di un grafo $G_2$.
 	\item
-	Costruiamo un grafo (procedura a ritroso) con score $d$ utilizzando il teorema dello score:
+	Costruiamo un grafo (procedura a ritroso) con score $d$ utilizzando il teorema dello score: \textbf{(DA FARE GRAFO)}
 	%\begin{center}
 	%	\begin{figure}[h]
 	%	\centering
@@ -1792,10 +2004,10 @@
 	\item
 	$n=9$
 	\item
-	$|E| = \frac{1}{2} (1,1,1,1,1,2,2,3,4) = \frac{1}{2} (16) = 8$
+	$\displaystyle{|E| = \frac{1}{2} (1,1,1,1,1,2,2,3,4) = \frac{1}{2} (16) = 8}$
 	\item
 	Vale:
-	$$n-1 = |E| \Longleftrightarrow 9-1 = 8 \Longleftarrow 8=8$$
+	$$n-1 = |E| \Longleftrightarrow 9-1 = 8 \Longleftrightarrow 8=8$$
 	\item
 	Osservo che $d_4$ non ha entrate nulle (vertici isoltati) e che vale la formula di Eulero; dunque l'albero con score $d_4$ può essere costruito nel seguente modo:
 	\begin{center}
@@ -1811,10 +2023,10 @@
 	\item
 	$n=21$
 	\item
-	$|E| = \frac{1}{2} (1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,,2,3,6,6,7) = \frac{1}{2} (40) = 20$
+	$\displaystyle{|E| = \frac{1}{2} (1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,,2,3,6,6,7) = \frac{1}{2} (40) = 20}$
 	\item
 	Vale:
-	$$n-1 = |E| \Longleftrightarrow 21-1 = 20 \Longleftarrow 20=20$$
+	$$n-1 = |E| \Longleftrightarrow 21-1 = 20 \Longleftrightarrow 20=20$$
 	\item
 	Osservo che $d_5$ non ha entrate nulle (vertici isoltati) e che vale la formula di Eulero; dunque l'albero con score $d_5$ può essere costruito nel seguente modo:
 	\begin{center}
@@ -1827,7 +2039,7 @@
 	\end{enumerate}
 	\end{itemize}
 	
-	\subsection{Esercizio 6}
+	\subsection{Esercizio 7}
 	\begin{itemize}
 	\item
 	Dise se esite un grafo connesso con il seguente score:
@@ -1867,5 +2079,114 @@
 	\textbf{Nulla si può dire}, la condizione (necessaria ma non sufficiente) non è verificata.
 	\end{itemize}
 	\end{enumerate}
+	\end{itemize}
+	
+	\subsection{Esercizio 8}
+	\begin{itemize}
+	\item
+	$d_1 = (2,3,4,4,5,5,5,6,7,7)$
+	\item
+	$d_2 = (1,2,3,3,3,3,4,8,8,9)$
+	\item
+	Esiste un grafo con score $d_1$ e/o $d_2$. Se esiste, costruirlo con il Teorema dello score.
+	\item
+	Costruire inoltre un grafo con tale score tale che:
+	\begin{itemize}
+	\item
+	Sia hamiltoniano.
+	\item
+	Sia connesso.
+	\item
+	Sia un albero.
+	\end{itemize}
+	\item
+	Studiamo $d_1$:
+	\begin{itemize}
+	\item
+	Sono previsti $n=10$ vertici.
+	\item
+	Ostruzione 1: $7 \leq 9$, NPSD
+	\item
+	Ostruzione 2: LSM $6$ è pari, NPSD
+	\item
+	Ostruzione 3: $\varnothing$, NPSD
+	\item
+	Ostruzione 4: $8 \geq 4$, NPSD
+	\item
+	Tutte le istruzioni sono verificate, dunque passo all'applicazione del teorema dello score a $d_1$:
+	\[
+	\begin{array}{cc}
+		\toprule
+		Score & Dati \\
+		\midrule
+		\begin{split} d &= (2,3,4,4,5,5,5,6,7,7) \end{split} & \begin{split} n &= 10 \\ d_n &= 7 \leq 10 -1 \end{split} \\
+		\midrule
+		\begin{split} d' &= (2,3,3,3,4,4,4,5,6) \end{split} & \begin{split} n &= 9 \\ d_n &= 6 \leq 9 -1 \end{split} \\
+		\midrule
+		\begin{split} d'' &= (2,3,2,2,3,3,3,4) \\ &= (2,2,2,3,3,3,3,4) \end{split} & \begin{split} n &= 8 \\ d_n &= 4 \leq 8 -1 \end{split} \\
+		\midrule
+		\begin{split} d''' &= (2,2,2,2,2,2,2) \end{split} & \textrm{Entrate minori o uguali a 2} \\
+		\bottomrule
+	\end{array}
+	\]
+	\item
+	Poichè $d'''$ è lo score del seguente grafo $G'''$:
+	\item
+	Grazie al teorema dello score, anche $d_1$ è lo score di un grafo $G_1$.
+	\item
+	Applichiamo la costruzione "a ritroso" implicata dal teorema dello score: \textbf{(DA FARE GRAFO)}
+	\item
+	Il grafo $G_1$ ha score $d_1$.
+	\item
+	Osserviamo che: $(v_{10},v_{9},v_8,v_7,v_1,v_2,v_3,v_4,v_5,v_8,v_9,v_{10})$ è un ciclo hamiltoniano del grafo $G_1$ che abbiamo appena costruito. Dunque $G_1$ è un grafo hamiltoniano con score $d_1$.
+	\item
+	Osservo che:
+	\begin{itemize}
+	\item
+	$d_1 = (D_1,\dotso,D_n)$ con $(D_1 \leq D_2 \leq \dotso \leq D_n)$
+	\item
+	$D_1 \geq n - D_n - 1$ cioè $2 \geq 10 - 7 - 1 \implies 2 \geq 2$
+	\item
+	Osservo che il grado minimo previsto $2$ è maggiore o uguale a $10-7-1$; dunque ogni grafo con score $d_1$ è sconnesso.
+	\end{itemize}
+	\item
+	Non esiste un albero con score $d_1$ per assenza di foglie ($n = 10 \geq 2$).
+	\end{itemize}
+	
+	\item
+	Studiamo $d_2$:
+	\begin{itemize}
+	\item
+	Sono previsti $n=10$ vertici.
+	\item
+	Ostruzione 1: $9 \leq 9$, NPSD
+	\item
+	Ostruzione 2: LSM $6$ è pari, NPSD
+	\item
+	Ostruzione 3: $\varnothing$, NPSD
+	\item
+	Ostruzione 4: $7 \geq 7$, NPSD
+	\item
+	Tutte le istruzioni sono verificate, dunque passo all'applicazione del teorema dello score a $d_1$:
+	\[
+	\begin{array}{cc}
+		\toprule
+		Score & Dati \\
+		\midrule
+		\begin{split} d &= (1,2,3,3,3,3,4,8,8,9) \end{split} & \begin{split} n &= 10 \\ d_n &= 9 \leq 10 -1 \end{split} \\
+		\midrule
+		\begin{split} d' &= (0,1,2,2,2,2,3,7,7) \end{split} & \begin{split} n &= 9 \\ d_n &= 7 \leq 9 -1 \end{split} \\
+		\midrule
+		\begin{split} d'' &= (0,0,1,1,1,1,2,6) \end{split} & \begin{split} n &= 8 \\ d_n &= 6 \leq 8 -1 \end{split} \\
+		\midrule
+		\begin{split} d''' &= (0,-1,0,0,0,0,1) \end{split} & \textrm{Entrata negativa.} \\
+		\bottomrule
+	\end{array}
+	\]
+	\item
+	$d'''$ non è lo score di un grafo avendo una componente negativa.
+	\item
+	Grazie al teorema dello score, anche $d_2$ non è lo score di un grafo.
+	\end{itemize}
 	\end{itemize}
 \end{document} 
