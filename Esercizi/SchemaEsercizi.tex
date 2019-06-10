@@ -758,6 +758,7 @@
 	&= \left[7 + k \cdot 7\right]_{14} \\
 	&= \left[14\right]_{14} \textrm{ \quad con } k=1 \\
 	&= \left[0\right]_{14} \\
+	\notag
 	\end{split}
 	\end{equation}
 	\item
@@ -1109,6 +1110,117 @@
 		\item
 		La massima soluzione negativa è: $-11$ (data da $49-60$).
 	\end{itemize}
+	
+	\subsection{Esercizio 3}
+		\begin{itemize}
+		\item
+		Determinare tutte le soluzioni di $x^5 \equiv 49(mod \,\, 171)$ e se ne determini la massima soluzione negativa.
+		\item
+		\textsc{Soluzione:}
+		\begin{enumerate}
+		\item
+		\textbf{Applicabilità del Teorema della crittografia RSA}
+		\begin{itemize}
+		\item
+		Dobbiamo verificare che:
+		\begin{enumerate}
+		\item
+		$(49,171) = 1$ (vero in quanto nella fattorizzazione di $41$ e $171$ non sono presenti numeri primi comuni).
+		\item
+		$(5,\phi(171)) =  1$
+		\begin{itemize}
+		\item
+		$\phi(60) = \phi(3^2) \cdot \phi(19) = (3^2 - 3^1)(18) = 108$
+		\item
+		Vale che $(5,\phi(171)) = (5,108) = 1$ (visto che $5$ è un numero primo e non divide $108$)
+		\end{itemize}
+		\end{enumerate}
+		\item
+		Possiamo dunque applicare il teorema fondamentale della crittografia RSA, ottenendo:
+		\begin{equation}
+		\begin{split}
+		Sol &= \left[49^d\right]_{171} \subset \mathbb{Z} \\
+		d>0,\, &d \in \left[5\right]_{\phi(171)}^{-1} = \left[5\right]_{108}^{-1} 
+		\notag
+		\end{split}
+		\end{equation}
+		\end{itemize}
+		\item
+		\textbf{Calcolo del Sol:}
+		\begin{itemize}
+		\item
+		Applichiamo l'algoritmo di Euclide a $(108,5)$:
+		\begin{equation}
+		\begin{split}
+		108 &= 21 \cdot 5 + 3 \\
+		5 &= 1 \cdot 3 + 2 \\
+		3 &= 1 \cdot 2 + 1 \\	
+		\hbox{\sout{$2$}} &= \hbox{\sout{$2 \cdot 1 + 0$}}
+		\notag
+		\end{split}
+		\end{equation}
+		\item
+		Risaliamo i resti:
+		\begin{equation}
+		\begin{split}
+		3 &= 108 - 21 \cdot 5 \\
+		2 &= 5 - 1 \cdot 3 \\
+		1 &= 3 - 1 \cdot 2 \\
+		&= 3 - 1(5 - 1 \cdot 3) \\
+		&= 2 \cdot 3 - 1 \cdot 5 \\
+		&= 2(108 - 21 \cdot 5) - 1 \cdot 5 \\
+		&= 2 \cdot 108 - 43 \cdot 5
+		\notag				
+		\end{split}
+		\end{equation}
+		\item
+		Dunque: 
+		$$1 = 2 \cdot 108 + (-43) \cdot 5$$
+		$$\left[1\right]_{108} = \left[2\right]_{108} \cdot \left[108\right]_{108} + \left[-43\right]_{108} \cdot \left[5\right]_{108}$$
+		\item
+		Passando a$\pmod{108}$ si ha che:
+		$$\left[1\right]_{108} = \left[-43\right]_{108} \cdot \left[5\right]_{108}$$
+		\item
+		Dunque: $\left[5\right]_{108}^{-1} = \left[-43 + 108\right]_{108} = \left[65\right]_{108}$ con $d=65$ e: $$Sol = \left[49\right]_{171}^{65} = \left[7^2\right]_{108}^{65} = \left[7^{130}\right]_{108} \subset \mathbb{Z}$$
+		\item
+		Dopo aver studiato l'orbita segue che:
+		\begin{equation}
+		\begin{split}
+		Sol &=  \left[7^{130}\right]_{171} \\
+		&= \left[7^{(3 \cdot 43 +1)}\right]_{171} \\
+		&= \left[\left(7^3\right)^{43} \cdot 7^1\right]_{171} \\
+		&= \left[7^3\right]_{171}^{43} \cdot \left[7^1\right]_{171} \\
+		&= \left[1\right]_{171}^{43} \cdot \left[7\right]_{171} \\
+		&= \left[1^{43}\right]_{171} \cdot \left[7\right]_{171} \\
+		&= \left[1\right]_{171} \cdot \left[7\right]_{171} \\
+		&= \left[7\right]_{171}
+ 		\notag
+		\end{split}
+		\end{equation}
+		\item
+		Quindi:
+		\begin{equation}
+		\begin{split}
+		Sol &= \left[7\right]_{171} \\
+		&= \{7 + k \cdot 171 \in \mathbb{Z} | k \in \mathbb{Z} \}  \\
+		\notag
+		\end{split}
+		\end{equation}
+		\end{itemize}
+		\end{enumerate}
+		\item
+		Esiste un $k \in Sol$ tale che la somma del numero ottenuto faccia $12$ ($\exists \, k \geq 0 \,\, tc. \textrm{ la somma delle cifre del numero } \{7 + 171 \cdot k\} \textrm{ faccia } 12 $)?
+		\begin{itemize}
+		\item
+		Se esistesse, il numero sarebbe mutiplo di $3$:
+		$$\left[0\right]_3 = \left[7 + k \cdot 171\right]_3 = \left[7\right]_3 + \left[171\right]_3 \cdot \left[k\right]_3 = \left[1\right]_3 + \left[0\right]_3 \cdot \left[k\right]_3 = \left[1\right]_3$$
+		\item
+		Qualunque essa sia la soluzione della mia conguenza, se viene divisa per $3$, ottengo sempre un resto di $1$.
+		\item
+		Dunque, non può esserci una soluzione divisibile per 3 la cui somma delle cifre faccia $12$.
+		\end{itemize}
+		
+		\end{itemize}
 	
 	\newpage
 	\section{Grafi}
@@ -1604,13 +1716,14 @@
 		
 	
 	\section{Osservazioni:}
-	\begin{enumerate}
+	\subsection{Alberi}
+	\begin{itemize}
 	\item
 	Sia $d = (d_1,d_2,\dotso,d_n) \in \mathbb{N}^n$ tale che $1\leq d_1 \leq d_2 \leq \dotso \leq d_n$ tale che:$$\displaystyle{n-1 = \frac{1}{2} \sum_{i=1}^{n} d_i}$$ allora \textbf{esiste almeno un albero} con tale score.
 	\item
 	Se un grafo $G$ ammette almeno un \textbf{albero di copertura}, allora $G$ è \textbf{connesso}.
-	\item
-	\textsc{Forzatura alla sconnessione}:
+	\end{itemize}
+	\subsection{Forzatura alla sconnessione}
 	\begin{itemize}
 	\item
 	 Se $G=(V,E)$ è un grafo finito tale che $|E| < |V| - 1$, allora $G$ è \textbf{sconnesso}.
@@ -1619,8 +1732,7 @@
 	 $$\displaystyle{\frac{1}{2}\left(\sum_{i=1}^{n} d_i \right)}$$
 	 allora \textbf{ogni} grafo (se esiste) con score d è \textbf{connesso}.
 	\end{itemize}
-	\item
-	\textsc{Forzatura alla connessione}:
+	\subsection{Forzatura alla connessione}
 	\begin{itemize}
 	\item
 	Sia $G=(V,E)$ un grafo finito con score $d=(d_1, \dotso, d_n)$ in forma canonica.\\ Se $d_1, d_2, \geq n - d_n - 1$, allora tutti i grafi con score $d$ sono connessi.
@@ -1635,12 +1747,10 @@
 	\item
 	Allora ogni grado (se esiste) con score $d$ è \textbf{connesso}.
 	\end{itemize}
-	\item
 	Se la \textbf{disugualianza per la connessione} (o per la \textbf{sconnessione}) non funziona, cioè risulta \textbf{falsa}, allora \textbf{nulla si può dire} in merito alla connessione di un grafo con tale score.
-	\end{enumerate}
-	
+		
 	\newpage
-	
+	\section{Esercizi Grafi}
 	\subsection{Esercizio 1}
 	\begin{itemize}
 	\item
