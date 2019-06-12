@@ -1,6 +1,6 @@
 \documentclass[10pt]{article}
 \usepackage[italian]{babel}
-\usepackage{amsmath,amsfonts,amssymb,mathtools, ulem, booktabs,subcaption}
+\usepackage{amsmath,amsfonts,amssymb,mathtools, ulem, booktabs,subcaption, float}
 \usepackage[utf8x]{inputenc}
 \usepackage[margin=1.0in]{geometry}
 
@@ -1729,7 +1729,7 @@
 	 Se $G=(V,E)$ è un grafo finito tale che $|E| < |V| - 1$, allora $G$ è \textbf{sconnesso}.
 	 \item
 	 Sia $d = (d_1, d_2, \dotso, d_n) \in \mathbb{N}^n$ tale:
-	 $$\displaystyle{\frac{1}{2}\left(\sum_{i=1}^{n} d_i \right)}$$
+	 $$\displaystyle{\frac{1}{2}\left(\sum_{i=1}^{n} d_i \right) < n - 1}$$
 	 allora \textbf{ogni} grafo (se esiste) con score d è \textbf{connesso}.
 	\end{itemize}
 	\subsection{Forzatura alla connessione}
@@ -1867,9 +1867,9 @@
 	\end{figure}
 	\end{center}
 	\item
-	Dunque, grazie al teorema dello score anche $d$ è lo score di un grafo G.
+	Dunque, grazie al teorema dello score anche $d$ è lo score di un grafo G (\textbf{DA FARE GRAFO}):
 	\end{itemize}
-	
+	\bigskip \bigskip \bigskip \bigskip \bigskip \bigskip  \bigskip \bigskip \bigskip
 	\subsection{Esercizio 3}
 	\begin{itemize}
 	\item
@@ -1943,7 +1943,7 @@
 	\item
 	Costruiamo un grafo (procedura a ritroso) con score $d$ utilizzando il teorema dello score: \textbf{(DA FARE GRAFO)}
 	\end{itemize}
-	
+	\newpage
 	\subsection{Esercizio 4}
 	\begin{itemize}
 	\item
@@ -2018,13 +2018,7 @@
 	Verifichiamo la quarta ostruzione, cioè "il numero di entrate di $d$ (eccetto le ultime due) maggiori o uguali a $2$" deve essere maggiore di $d_{n-1} + d_n - n$
 	\item
 	Dunque:
-	\begin{equation}
-	\begin{split}
-		|(1,1,1,1,1,1,1,1,1,1,4,4,4)| &\geq 4+4-13 \\
-		1 &\geq -5
-		\notag
-		\end{split}
-	\end{equation}
+	$$|(1,1,1,1,1,1,1,1,1,1,4,4,4)| \geq 4+4-13 \Longleftrightarrow 2 \geq -5 $$
 	\item
 	La quarta ostruzione è rispettata, \textbf{ma nulla si può dire}.
 	\item
@@ -2045,7 +2039,7 @@
 	\item
 	Poichè $d''$ è lo score del seguente grafo $G'''$:
 	\begin{center}
-		\begin{figure}[h]
+		\begin{figure}[H]
 		\centering
 		\includegraphics[width = 0.3\linewidth]{scoreGrafo_Esercizio5}
 	\end{figure}
@@ -2054,18 +2048,19 @@
 	Grazie al teorema dello score anche $d_2$ è lo score di un grafo $G_2$.
 	\item
 	Costruiamo un grafo (procedura a ritroso) con score $d$ utilizzando il teorema dello score: \textbf{(DA FARE GRAFO)}
-	%\begin{center}
-	%	\begin{figure}[h]
-	%	\centering
-	%	\begin{subfigure}[b]{0.3\linewidth}
-	%		\includegraphics[width=\linewidth]{scoreEsercizio5}
-	%	\end{subfigure}
-	%	\begin{subfigure}[b]{0.2\linewidth}
-	%		\includegraphics[width=\linewidth]{grafoEsercizio5}
-	%	\end{subfigure}
-	%\end{figure}
-	%\end{center}
+	\begin{center}
+		\begin{figure}[H]
+		\centering
+		\begin{subfigure}[b]{0.4\linewidth}
+			\includegraphics[width=\linewidth]{scoreEsercizio5}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.4\linewidth}
+			\includegraphics[width=\linewidth]{grafoEsercizio5}
+		\end{subfigure}
+	\end{figure}
+	\end{center}
 	\end{itemize}
+	\newpage
 	\subsection{Esercizio 6}
 	\begin{itemize}
 	\item
@@ -2123,10 +2118,11 @@
 	\begin{center}
 		\begin{figure}[!h]
 		\centering
-		\includegraphics[width = 0.5\linewidth]{EsercizioScoreAlberiD4}
+		\includegraphics[width = 0.6\linewidth]{EsercizioScoreAlberiD4}
 	\end{figure}
 	\end{center}
 	\end{itemize}
+	\bigskip
 	\item
 	Verifichiamo la formula di Eulero per $d_5$:
 	\begin{itemize}
@@ -2142,13 +2138,12 @@
 	\begin{center}
 		\begin{figure}[!h]
 		\centering
-		\includegraphics[width = 0.6\linewidth]{EsercizioScoreAlberiD5}
+		\includegraphics[width = 0.8\linewidth]{EsercizioScoreAlberiD5}
 	\end{figure}
 	\end{center}
 	\end{itemize}
 	\end{enumerate}
 	\end{itemize}
-	
 	\subsection{Esercizio 7}
 	\begin{itemize}
 	\item
@@ -2241,10 +2236,13 @@
 	\]
 	\item
 	Poichè $d'''$ è lo score del seguente grafo $G'''$:
+	\bigskip \bigskip \bigskip \bigskip \bigskip
 	\item
 	Grazie al teorema dello score, anche $d_1$ è lo score di un grafo $G_1$.
 	\item
 	Applichiamo la costruzione "a ritroso" implicata dal teorema dello score: \textbf{(DA FARE GRAFO)}
+	\bigskip \bigskip \bigskip \bigskip \bigskip \bigskip \bigskip \bigskip \bigskip \bigskip \bigskip \bigskip
+	
 	\item
 	Il grafo $G_1$ ha score $d_1$.
 	\item
