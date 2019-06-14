@@ -244,20 +244,20 @@
 	\end{itemize}
 
 	\subsection{Esercizio 6}
-	Si dimostri per induzione su $n \!\in\! \mathbb{N}$ che $\forall \, n \geq 1$ vale $P(n) := \displaystyle{\sum_{k=1}^n \frac{3}{(2k+1)(2k+3)} = 1 - \frac{n}{(2n + 3)}}$
+	Si dimostri per induzione su $n \!\in\! \mathbb{N}$ che $\forall \, n \geq 1$ vale $P(n) := \displaystyle{\sum_{k=1}^n \frac{3}{(2k+1)(2k+3)} = \frac{n}{(2n + 3)}}$
 	\\ \textsc{Soluzione:}
 	\begin{itemize}	
 	\item
 	Osserviamo che vale $n=1$ (\textbf{base dell'induzione}):
-	$$\frac{3}{(2\cdot 1 + 1)(2 \cdot k + 3)} = \frac{1}{2\cdot 1 + 3} \Longleftrightarrow \frac{3}{(2+1)(2+3)} = \frac{1}{2+3} \Longleftrightarrow \frac{3}{15} = \frac{1}{5} \Longleftrightarrow \frac{1}{3} = \frac{1}{5}$$
+	$$\frac{3}{(2\cdot 1 + 1)(2 \cdot 1 + 3)} = \frac{1}{2 \cdot 1 + 3} \Longleftrightarrow \frac{3}{(2+1)(2+3)} = \frac{1}{2+3} \Longleftrightarrow \frac{3}{15} = \frac{1}{5} \Longleftrightarrow \frac{1}{5} = \frac{1}{5}$$
 	\item
 	$P(1)$ è vera.
 	\item
 	$n \geq 1$, $n \implies n+1$ (\textbf{passo induttivo}).
 	\item
-	Assumiamo che $\displaystyle{\sum_{k=1}^n \frac{3}{(2k+1)(2k+3)} = 1 - \frac{n}{(2n + 3)}}$ sia vera per qualche $n \geq 1$ (\textbf{ipotesi induttiva}).
+	Assumiamo che $\displaystyle{\sum_{k=1}^n \frac{3}{(2k+1)(2k+3)} = \frac{n}{(2n + 3)}}$ sia vera per qualche $n \geq 1$ (\textbf{ipotesi induttiva}).
 	\item
-	Dobbiamo provare che $\displaystyle{\sum_{k=1}^{n+1} \frac{3}{(2k+1)(2k+3)} = 1 - \frac{n+1}{(2(n+1) + 3)}}$
+	Dobbiamo provare che $\displaystyle{\sum_{k=1}^{n+1} \frac{3}{(2k+1)(2k+3)} = \frac{n+1}{(2(n+1) + 3)}}$
 	\item
 	Vale:
 	\begin{equation}
@@ -273,7 +273,7 @@
 	\end{split}
 	\end{equation}
 	\item
-	Dunque, visto che $\displaystyle{\sum_{k=1}^{n+1} \frac{3}{(2k+1)(2k+3)} = 1 - \frac{n+1}{(2(n+1) + 3)}}$, abbiamo dimostrato l'ugualianza.
+	Dunque, visto che $\displaystyle{\sum_{k=1}^{n+1} \frac{3}{(2k+1)(2k+3)} = \frac{n+1}{(2(n+1) + 3)}}$, abbiamo dimostrato l'ugualianza.
 	\end{itemize}
 	\newpage
 	
@@ -1313,8 +1313,8 @@
 	\[
 		\begin{rcases*}
 		score(G_{25}) = (3,3,3,3,3,3,6) \\
-		score(G_{25}) = (3,3,3,3,3,3,6) \\
-		score(G_{25}) = (3,3,3,3,3,3,6)
+		score(G_{26}) = (3,3,3,3,3,3,6) \\
+		score(G_{27}) = (3,3,3,3,3,3,6)
 		\end{rcases*} \textrm{\textsc{nulla si può dire}}
 	\]
 	\item
@@ -1474,7 +1474,7 @@
 	\subsection{Esercizio 4}
 	\begin{itemize}
 	\item
-	Dire se $d = (1,1,2,2,2,3,4,5,5,7)$ è lo score di un grafo.
+	Dire se $d = (1,1,1,2,2,3,4,5,5,7)$ è lo score di un grafo.
 	\item
 	Supponiamo che esista un grafo finito $G$ con $score(G) = d$
 	\item
@@ -1494,8 +1494,8 @@
 	Per il lemma delle strette di mano, il numero di vertici dispari deve essere pari:
 	\begin{equation}
 	\begin{split}
-		|&V(G) \textrm{ pari }| \quad\, =  4\\
-		|&V(G) \textrm{ dispari }| = 3 
+		|&V(G) \textrm{ pari }| \quad\, =  3\\
+		|&V(G) \textrm{ dispari }| = 7 
 		\notag 
 		\end{split}
 	\end{equation}
@@ -1551,11 +1551,11 @@
 	\subsection{Esercizio 6}
 	\begin{itemize}
 	\item
-	Dire se $d = (2,2,3,3,3,3,4,4,11,11,11)$ è lo score di un grafo.
+	Dire se $d = (2,2,3,3,3,3,3,4,4,11,11,11)$ è lo score di un grafo.
 	\item
 	Supponiamo che esista un grafo finito $G$ con $score(G) = d$
 	\item
-	Allora $n := |V(G)| = 12$ e il grado massimo di uno dei suoi vertici è $d_n = 11$
+	Allora $n := |V(G)| = 12$ e il grado massimo di uno dei suoi vertici è $d_n = 12$
 	\item
 	Deve valere:
 	\begin{equation}
@@ -1730,7 +1730,7 @@
 	 \item
 	 Sia $d = (d_1, d_2, \dotso, d_n) \in \mathbb{N}^n$ tale:
 	 $$\displaystyle{\frac{1}{2}\left(\sum_{i=1}^{n} d_i \right) < n - 1}$$
-	 allora \textbf{ogni} grafo (se esiste) con score d è \textbf{connesso}.
+	 allora \textbf{ogni} grafo (se esiste) con score d è \textbf{sconnesso}.
 	\end{itemize}
 	\subsection{Forzatura alla connessione}
 	\begin{itemize}
@@ -1931,7 +1931,7 @@
 	\end{array}
 	\]
 	\item
-	Poichè $d'''$ è lo score del seguente grafo $G'''$:
+	Poichè $d''$ è lo score del seguente grafo $G''$:
 	\begin{center}
 		\begin{figure}[h]
 		\centering
@@ -2047,7 +2047,7 @@
 	\item 
 	Grazie al teorema dello score anche $d_2$ è lo score di un grafo $G_2$.
 	\item
-	Costruiamo un grafo (procedura a ritroso) con score $d$ utilizzando il teorema dello score: \textbf{(DA FARE GRAFO)}
+	Costruiamo un grafo (procedura a ritroso) con score $d$ utilizzando il teorema dello score:
 	\begin{center}
 		\begin{figure}[H]
 		\centering
@@ -2255,7 +2255,7 @@
 	\item
 	$D_1 \geq n - D_n - 1$ cioè $2 \geq 10 - 7 - 1 \implies 2 \geq 2$
 	\item
-	Osservo che il grado minimo previsto $2$ è maggiore o uguale a $10-7-1$; dunque ogni grafo con score $d_1$ è sconnesso.
+	Osservo che il grado minimo previsto $2$ è maggiore o uguale a $10-7-1$; dunque ogni grafo con score $d_1$ è connesso.
 	\end{itemize}
 	\item
 	Non esiste un albero con score $d_1$ per assenza di foglie ($n = 10 \geq 2$).
